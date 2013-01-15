@@ -1,3 +1,1 @@
-'Method PUT is not allowed by Access-Control-Allow-Methods' has to be resolved. This error is preventing uploads. 
-
-TODO: Upload a file via a browser and Download it using the SDK.
+in the function call partialUploadInit() in app.js, the upload-id returned as part of the response header is not available through getResponseHeader('upload-id')  

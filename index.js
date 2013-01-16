@@ -16,7 +16,7 @@ requirejs(["jquery","config.js","Can"],function($,CONFIG,Can){
 
 	// Runs well if the url below if a localhost address , but not when some other domain name. 
 
-	can.getLoginUrl("http://127.0.0.1/airship/app.html",function(status,url) {
+	can.getLoginUrl("http://127.0.0.1/example/app.html",function(status,url) {
 		if(status == 200){
 
 			 console.log("getLoginUrl : " + url);

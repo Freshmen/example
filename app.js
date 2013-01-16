@@ -71,13 +71,13 @@ requirejs(["jquery","config.js","Can"],function($,CONFIG,Can){
 	function uploadFile(fileName, fileContents, headers) {
 
 	        ctx.fsio.data.partialUploadInit(ctx.token, fileName, function(jqXHR,textStatus) {
-			console.log(jqXHR.getAllResponseHeaders());
-			console.log(textStatus);
+			// console.log(jqXHR.getAllResponseHeaders());
+			// console.log(textStatus);
 			// test = jqXHR;
-		});
-
-		ctx.fsio.data.uploadPartially(ctx.token, ctx.uploadId, fileContents, 5000, function(jqXHR) {
-			alert("Uploaded " + fileName + " with status " + jqXHR.status + " and response text " + jqXHR.responseText);
+			ctx.uploadId = jqXHR.getResponseHeader("upload-id");
+			ctx.fsio.data.uploadPartially(ctx.token, ctx.uploadId, fileContents, fileContents.length, function(jqXHR) {
+				alert("Uploaded " + fileName + " with status " + jqXHR.status + " and response text " + jqXHR.responseText);
+			});
 		});
    	
 	    /*	ctx.fsio.data.upload(ctx.token, fileName , fileContents, function(jqXHR) {
